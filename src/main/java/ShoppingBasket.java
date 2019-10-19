@@ -68,11 +68,10 @@ public class ShoppingBasket {
     }
 
     public double checkOut() {
-        double a = this.countProductsToBuyDiscount() / 2;
-        long b = Math.round(a);
+        double freeProducts = this.countProductsToBuyDiscount() / 2;
         double discount = 0;
         for (Product prod : productsWithDiscount) {
-            discount = prod.getPrice() * b;
+            discount = prod.getPrice() * freeProducts;
         }
         double newTotal = this.getTotal() - discount;
         if (newTotal >= 20.00) {
